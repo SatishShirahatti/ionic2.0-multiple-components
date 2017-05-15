@@ -1,0 +1,39 @@
+<ion-header>
+ <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Book a Trip </ion-title>
+  </ion-navbar>
+  </ion-header>
+<ion-content padding class="booking">
+    <form class="list">
+    <ion-item>
+      <ion-label floating>FirstName</ion-label>
+      <ion-input type="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Lastname</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+        <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="Email"></ion-input>
+    </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-select>
+          <ion-option value="Male">Male</ion-option>
+          <ion-option value="Female">Female</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+     <ion-item>
+      <ion-label floating>Contact details</ion-label>
+      <ion-input type="tel" ></ion-input>
+    </ion-item>
+    <br/>
+    <button [navPush]='GotoSuccessPage'  ion-button color="secondary">Click to Complete</button>
+    </form>
+</ion-content>

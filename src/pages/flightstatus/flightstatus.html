@@ -1,0 +1,66 @@
+<ion-header>
+ <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Tracking flight</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="status">
+      <ion-segment-button value="Route">
+        Route
+      </ion-segment-button>
+      <ion-segment-button value="flightNumber">
+        flight Number
+      </ion-segment-button>
+      <ion-segment-button value="Tracking">
+        Tracking
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="status">
+    <ion-list *ngSwitchCase=" 'Route'">
+    <ion-list>
+    <ion-item>
+      <ion-label stacked>Departs</ion-label>
+      <ion-input type="text" placeholder="From"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Arrives</ion-label>
+      <ion-input type="text" placeholder="To"></ion-input>
+    </ion-item>
+  </ion-list>
+    <div padding>
+    <button [navPush]="bookFlight" ion-button color="primary" block>Find Flights</button>
+  </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase=" 'flightNumber'">
+        <ion-list>
+        <ion-item>
+          <ion-label stacked>EK</ion-label>
+          <ion-input type="text" placeholder="eg 123"></ion-input>
+        </ion-item>
+        </ion-list>
+        <div padding>
+        <button [navPush]="bookFlight" ion-button color="primary" block>Find Flights</button>
+        </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Tracking'">
+     <ion-card>
+  <ion-card-header>
+    You aren't tracking any flights.
+  </ion-card-header>
+  <ion-card-content>
+    Search for flights by route or flight number
+    to start tracking.
+    you can track up to three flights.
+  </ion-card-content>
+</ion-card>    </ion-list>
+  </div>
+</ion-content>

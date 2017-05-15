@@ -1,0 +1,66 @@
+
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/img/bird.gif">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-header>
+
+  <ion-navbar>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Login or Register</ion-title>
+  </ion-navbar>
+ <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="userlogin">
+      <ion-segment-button value="Login">
+        Login
+      </ion-segment-button>
+      <ion-segment-button value="Register">
+        Register
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="userlogin">
+    <ion-list *ngSwitchCase="'Login'">
+  <div >
+    <ion-item>
+      <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </div>
+  <br/>
+    <button [navPush]='loginTobroker' ion-button color="primary" full >Login</button>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Register'">
+  <div >
+
+    <ion-item>
+      <ion-input type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </div>
+  <br/>
+  <button [navPush]='loginTobroker' ion-button color="primary" full >Register</button>
+    </ion-list>
+  </div>
+</ion-content>
+

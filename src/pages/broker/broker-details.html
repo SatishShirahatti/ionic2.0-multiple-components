@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Broker</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+
+    <ion-list>
+
+        <div padding>
+            <ion-avatar item-left>
+                <img src="{{broker.picture}}"/>
+            </ion-avatar>
+            <h2>{{broker.firstName}} {{broker.lastName}}</h2>
+            <p>{{broker.title}} </p>
+           <p> <ion-icon name="mail"></ion-icon> :{{broker.email}}</p>
+           <p> <ion-icon  clear  name="call"> :{{broker.mobilePhone}}</ion-icon></p>
+           <p> <ion-icon  clear  name="logo-whatsapp"> :{{broker.phone}}</ion-icon></p>
+
+        </div>
+
+    </ion-list>
+
+</ion-content>

@@ -1,0 +1,164 @@
+<ion-header>
+ <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Book a Trip </ion-title>
+  </ion-navbar>
+
+  <div no-border-top>
+    <ion-segment [(ngModel)]="booking">
+      <ion-segment-button value="Flights">
+        Flights
+      </ion-segment-button>
+      <ion-segment-button value="Hotels">
+        Hotels
+      </ion-segment-button>
+      <ion-segment-button value="Cars">
+        Cars
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-header>
+<ion-content>
+  <div [ngSwitch]="booking">
+    <ion-list *ngSwitchCase=" 'Flights'">
+      <ion-item>
+    <ion-label >To</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label >From</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+      <ion-item>
+      <ion-label>OUTWARD</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="outward"></ion-datetime>
+    </ion-item>   
+       <ion-item>
+      <ion-label>RETURN</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="return"></ion-datetime>
+    </ion-item>
+<ion-list>
+  <ion-item>
+    <ion-label>Class</ion-label>
+    <ion-select [(ngModel)]="gaming">
+      <ion-option value="Economy">Economy</ion-option>
+      <ion-option value="Business">Business class</ion-option>
+      <ion-option value="Firstclass">First class</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<ion-list>
+  <ion-item>
+    <ion-label>TRAVELERS</ion-label>
+    <ion-select >
+      <ion-option value="1">1 Adult</ion-option>
+      <ion-option value="2">2 Adult</ion-option>
+      <ion-option value="3">3 Adult</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<ion-list>
+  <ion-item>
+    <ion-label>child (2-11years)</ion-label>
+    <ion-select >
+      <ion-option value="1">1 </ion-option>
+      <ion-option value="2">2 </ion-option>
+      <ion-option value="3">3 </ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<ion-list>
+  <ion-item>
+    <ion-label>Infants (0-23months)</ion-label>
+    <ion-select >
+      <ion-option value="1">1 </ion-option>
+      <ion-option value="2">2 </ion-option>
+      <ion-option value="3">3 </ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<ion-item>
+  <ion-label>Show low-price calendar</ion-label>
+  <ion-checkbox color="dark" checked="false"></ion-checkbox>
+</ion-item>
+
+<ion-item>
+  <ion-label> Flexible dates (+/- day)</ion-label>
+  <ion-toggle  checked="false"></ion-toggle>
+</ion-item>
+<ion-item>
+      <ion-label>pay with miles</ion-label>
+      <ion-toggle color="danger" checked="false"></ion-toggle>
+    </ion-item>
+    <div padding>
+    <button [navPush]="bookFlight" ion-button color="primary" block>Search</button>
+  </div>
+    </ion-list>
+    <ion-list *ngSwitchCase=" 'Hotels'">
+      <ion-item>
+    <ion-label stacked>Hotel Search</ion-label>
+    <ion-input type="text" placeholder="e.g Las vegas"></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col>
+    <div>
+    <ion-item>
+  <ion-label>Check in</ion-label>
+  <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="checkin"></ion-datetime>
+</ion-item>
+</div>
+</ion-col>
+  </ion-row>
+      <ion-item>
+      <ion-label>Check out</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="checkout"></ion-datetime>
+    </ion-item>
+  <ion-item>
+    <ion-label>Rooms</ion-label>
+    <ion-select >
+      <ion-option value="1">1 rooms 2 Adults </ion-option>
+      <ion-option value="2">2 rooms 2 Adults </ion-option>
+      <ion-option value="3">3 rooms 3 Adults </ion-option>
+    </ion-select>
+  </ion-item>
+
+    <div padding>
+    <button [navPush]="Bookhotels" ion-button color="default" block>Search</button>
+  </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Cars'">
+          <ion-item>
+    <ion-label stacked>PICK-UP LOCATION</ion-label>
+    <ion-input type="text" placeholder="type a Country, City or Airport"></ion-input>
+  </ion-item>
+  <ion-list radio-group>
+  <ion-list-header>
+    DROP-OFF LOCATION
+  </ion-list-header>
+  <ion-item>
+    <ion-label>Same as pick-up</ion-label>
+    <ion-radio checked="true" value="pickup"></ion-radio>
+  </ion-item>
+  <ion-item>
+    <ion-label>Airport</ion-label>
+    <ion-radio value="Airport"></ion-radio>
+  </ion-item>
+</ion-list>
+      <ion-item>
+      <ion-label>PICK-UP DATE</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="pickup"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>DROP-OFF DATE</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="dropoff"></ion-datetime>
+    </ion-item>
+
+    <div padding>
+    <button [navPush]="carresult" ion-button color="danger" block>Search</button>
+  </div>    
+</ion-list>
+</div>
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Car results</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Recent Conversations
+    </ion-list-header>
+
+    <ion-item *ngFor="let car of cardetails">
+      <ion-avatar item-left>
+        <img src="{{car.image}}">
+      </ion-avatar>
+      <h2>{{car.name}}</h2>
+      <h3>{{car.price}}</h3>
+      <button [navPush]="userform" ion-button color="danger"  item-right >Book</button>
+    </ion-item>
+
+
+
+
+  </ion-list>
+</ion-content>

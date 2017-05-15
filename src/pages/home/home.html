@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Flights</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor= "let item of datalist">
+                <ion-thumbnail item-left>
+                 <img src="{{item.image}}"/>{{item.flightname}}
+                </ion-thumbnail>
+                <h2>{{item.title}}</h2>
+                <p><b>Class:</b> {{item.class}} </p>
+                <p><b>Departure:</b> {{item.Departure}}</p>
+                <p> <b>Arrival:</b> {{item.Arrival}}</p>
+                <p> <b>Duration:</b> {{item.Duration}}</p>
+                <p><b>Price:</b> {{ item.Price }}</p>
+                <button [navPush]="userform" ion-button color="danger" full >Book</button>
+    </ion-item>
+  </ion-list>
+</ion-content>
